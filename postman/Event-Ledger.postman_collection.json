@@ -1,0 +1,77 @@
+{
+  "info": {
+    "name": "Mphasis Event Ledger",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Submit CREDIT",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "http://localhost:8080/events",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"eventId\": \"evt-001\",\n  \"accountId\": \"acct-123\",\n  \"type\": \"CREDIT\",\n  \"amount\": 150.0,\n  \"currency\": \"USD\",\n  \"eventTimestamp\": \"2026-05-15T14:02:11Z\",\n  \"metadata\": {\n    \"source\": \"mainframe-batch\",\n    \"batchId\": \"B-9042\"\n  }\n}"
+        }
+      }
+    },
+    {
+      "name": "Submit DEBIT",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "http://localhost:8080/events",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"eventId\": \"evt-002\",\n  \"accountId\": \"acct-123\",\n  \"type\": \"DEBIT\",\n  \"amount\": 30.0,\n  \"currency\": \"USD\",\n  \"eventTimestamp\": \"2026-05-15T13:02:11Z\"\n}"
+        }
+      }
+    },
+    {
+      "name": "List account events",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080/events?account=acct-123"
+      }
+    },
+    {
+      "name": "Get event",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080/events/evt-001"
+      }
+    },
+    {
+      "name": "Get account balance",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080/accounts/acct-123/balance"
+      }
+    },
+    {
+      "name": "Gateway health",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8080/health"
+      }
+    },
+    {
+      "name": "Account health",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:8081/health"
+      }
+    }
+  ]
+}

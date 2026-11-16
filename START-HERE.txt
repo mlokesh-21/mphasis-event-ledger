@@ -1,0 +1,16 @@
+Mphasis Event Ledger - Start Here
+
+1. Install JDK 17 and Maven.
+2. Extract this folder.
+3. Open a terminal in this folder.
+4. Run: mvn clean test
+5. Run Account Service: mvn -pl account-service spring-boot:run
+6. In another terminal run Gateway: mvn -pl event-gateway spring-boot:run
+7. Import postman/Event-Ledger.postman_collection.json into Postman.
+
+Read README.md for endpoints, Docker, design decisions, and testing.
+
+Important:
+- This is a complete starter implementation, but run the build and tests in your environment before submitting.
+- Review the code and be ready to explain every design choice.
+- The services use independent in-memory H2 databases; restarting a service clears its data.
